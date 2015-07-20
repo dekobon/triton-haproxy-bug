@@ -1,0 +1,16 @@
+lb:
+  image: dekobon/bouncy-haproxy:latest
+  mem_limit: 1024m
+  ports:
+    - "80:80"
+    - "443:443"
+  links:
+    - site
+  restart: always
+site:
+  image: tutum/hello-world
+  mem_limit: 512m
+  expose:
+    - "80:80"
+    - "443:443"
+  restart: always
